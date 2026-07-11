@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,20 +10,24 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
+<!-- FLOATING HEARTS -->
+
+<div id="hearts"></div>
+
 <!-- MUSIC -->
+
 <audio id="music" loop>
 <source src="shape-of-my-heart.mp3" type="audio/mpeg">
 </audio>
 
-<!-- FLOATING HEARTS -->
-<div id="hearts"></div>
-
 <!-- PIN SCREEN -->
+
 <div id="pinScreen">
 
 <div class="pin-box">
@@ -30,7 +36,7 @@
 
 <h2>Private Birthday Gift</h2>
 
-<p>Enter PIN to continue</p>
+<p>Enter PIN</p>
 
 <input
 type="password"
@@ -54,7 +60,7 @@ placeholder="••••">
 
 <button onclick="clearPin()">⌫</button>
 <button onclick="addPin('0')">0</button>
-<button onclick="checkPin()">❤</button>
+<button onclick="checkPin()">❤️</button>
 
 </div>
 
@@ -62,8 +68,11 @@ placeholder="••••">
 
 </div>
 
-<!-- MAIN WEBSITE -->
+<!-- WEBSITE -->
+
 <div id="website" class="hidden">
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -72,31 +81,48 @@ placeholder="••••">
 <h2>Kim Ji-soo ❤️</h2>
 
 <p>
-Today is a celebration of your beautiful soul.
-This little website was made with love,
+
+Today is all about celebrating
+your beautiful soul.
+
+I made this little place on the internet
 just for you.
+
 </p>
 
 <button onclick="openHeart()">
+
 Open My Heart ❤️
+
 </button>
 
 </section>
 
-<!-- BOTTLE SECTION -->
+<!-- BOTTLE -->
+
 <section id="bottleSection" class="hidden">
 
-<h2>A Message In A Bottle 🍷</h2>
+<h2>A Message In A Bottle 🍾</h2>
 
-<div id="bottleContainer">
+<p class="tap-text">
+
+Tap the bottle
+
+</p>
+
+<div id="bottleArea">
 
 <div id="bottle" onclick="breakBottle()">
+
 🍾
-</div>
 
 </div>
+
+<!-- FLOWERS WILL SPAWN HERE -->
 
 <div id="flowers"></div>
+
+</div>
 
 <div id="letterContainer">
 
@@ -111,58 +137,76 @@ Open My Heart ❤️
 </section>
 
 <!-- GALLERY -->
+
 <section class="gallery">
 
 <h2>Favorite Memories 📸</h2>
 
-<div class="photo-frame">
+<div class="gallery-grid">
 
-<img
-id="slide"
-src="jisoo1.jpg">
+<img src="jisoo1.jpg">
+<img src="jisoo2.jpg">
+<img src="jisoo3.jpg">
+
+<img src="jisoo4.jpg">
+<img src="jisoo5.jpg">
+<img src="jisoo6.jpg">
+
+<img src="jisoo7.jpg">
+<img src="jisoo8.jpg">
+<img src="jisoo9.jpg">
 
 </div>
 
-<p id="caption">
-You make every moment beautiful.
-</p>
-
 </section>
 
-<!-- SPECIAL PUZZLE -->
+<!-- PUZZLE -->
+
 <section class="puzzle-section">
 
-<h2>One Special Memory 🧩</h2>
+<h2>One Last Surprise 🧩</h2>
 
 <p>
-Arrange the puzzle to reveal the surprise photo.
+
+Arrange the puzzle to reveal
+the special photo.
+
 </p>
 
-<div id="puzzle"></div>
+<div id="puzzle-board"></div>
 
 </section>
 
 <!-- FINAL -->
+
 <section class="final">
 
 <h2>
-Happy Birthday, Ji-soo ❤️
+
+Happy Birthday ❤️
+
 </h2>
 
+<h3>
+
+Kim Ji-soo
+
+</h3>
+
 <p>
-May every dream you hold in your heart
+
+May every dream you carry
 find its way to reality.
 
-May happiness always find you,
-wherever life takes you.
+May happiness always find you.
 
-And thank you for existing,
-because this world is brighter with you in it.
+May your smile never fade.
+
+And may your heart always be full of love.
+
+❤️
+
 </p>
-
-<h3>
-Forever Admiring You ❤️
-</h3>
 
 </section>
 
@@ -171,4 +215,5 @@ Forever Admiring You ❤️
 <script src="script.js"></script>
 
 </body>
+
 </html>
