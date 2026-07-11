@@ -369,10 +369,10 @@ piece.style.backgroundImage=
 "url('special.jpg')";
 
 piece.style.backgroundSize =
-"330px 495px";
+"368px 490.5px";
 
 piece.style.backgroundPosition =
-`${-x*110}px ${-y*165}px`;
+`${-x*122.67}px ${-y*163.5}px`;
 
 pieces.push(piece);
 
