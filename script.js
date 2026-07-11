@@ -368,11 +368,11 @@ piece.dataset.correct=
 piece.style.backgroundImage=
 "url('special.jpg')";
 
-piece.style.backgroundSize=
-"300px 300px";
+piece.style.backgroundSize =
+"330px 495px";
 
-piece.style.backgroundPosition=
-`${-x*100}px ${-y*100}px`;
+piece.style.backgroundPosition =
+`${-x*110}px ${-y*165}px`;
 
 pieces.push(piece);
 
