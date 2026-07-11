@@ -274,17 +274,13 @@ margin-bottom:25px;
 }
 
 #puzzle-board{
-width:330px;
-height:495px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-grid-template-rows:repeat(3,1fr);
+width:368px;
+height:490.5px;
 }
 
 .piece{
-width:110px;
-height:165px;
+width:122.67px;
+height:163.5px;
 }
 
 #winMessage{
