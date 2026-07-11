@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Kim Ji-soo ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- PIN SCREEN -->
+
+<div id="pinScreen">
+
+<div class="pinContainer">
+
+<h1>❤️</h1>
+
+<h2>Birthday Gift For Kim Ji-soo</h2>
+
+<p>Enter PIN To Continue</p>
+
+<div id="pinDisplay">
+○ ○ ○ ○
+</div>
+
+<div class="keypad">
+
+<button onclick="pressKey('1')">1</button>
+<button onclick="pressKey('2')">2</button>
+<button onclick="pressKey('3')">3</button>
+
+<button onclick="pressKey('4')">4</button>
+<button onclick="pressKey('5')">5</button>
+<button onclick="pressKey('6')">6</button>
+
+<button onclick="pressKey('7')">7</button>
+<button onclick="pressKey('8')">8</button>
+<button onclick="pressKey('9')">9</button>
+
+<button onclick="deleteKey()">⌫</button>
+<button onclick="pressKey('0')">0</button>
+<button onclick="checkPin()">✓</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MAIN WEBSITE -->
+
+<div id="mainContent">
+
+<audio id="music" loop>
+<source src="shape-of-my-heart.mp3" type="audio/mpeg">
+</audio>
+
+<div id="hearts"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Happy Birthday</h1>
+
+<h2>Kim Ji-soo ❤️</h2>
+
+<p>
+
+Today is a celebration of your beautiful soul.
+
+This little website was made with love,
+just for you.
+
+</p>
+
+<button onclick="startJourney()">
+Open My Heart ❤️
+</button>
+
+</section>
+
+<!-- MEMORY WALL -->
+
+<section id="gallery" class="section">
+
+<h2 class="title">
+Beautiful Memories 📸
+</h2>
+
+<div class="gallery">
+
+<img src="jisoo1.jpg">
+<img src="jisoo2.jpg">
+<img src="jisoo3.jpg">
+
+<img src="jisoo4.jpg">
+<img src="jisoo5.jpg">
+<img src="jisoo6.jpg">
+
+<img src="jisoo7.jpg">
+<img src="jisoo8.jpg">
+<img src="jisoo9.jpg">
+
+</div>
+
+</section>
+
+<!-- BOTTLE -->
+
+<section id="bottleSection" class="section">
+
+<h2 class="title">
+A Message In A Bottle 🍾
+</h2>
+
+<p class="subtitle">
+Tap the bottle to open my heart
+</p>
+
+<div id="bottle" onclick="breakBottle()">
+
+🍾
+
+</div>
+
+<div id="flowers"></div>
+
+<div id="letterContainer">
+
+<div id="letterText"></div>
+
+</div>
+
+</section>
+
+<!-- SPECIAL PHOTO -->
+
+<section id="specialSection" class="section hidden">
+
+<h2 class="title">
+One Last Surprise ❤️
+</h2>
+
+<img src="special.jpg" class="special-photo">
+
+<p class="special-text">
+
+Among all the beautiful memories,
+
+this one will always be my favorite.
+
+❤️
+
+</p>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="ending">
+
+<h1>Happy Birthday ❤️</h1>
+
+<h2>Kim Ji-soo</h2>
+
+<p>
+
+May your life be filled with love,
+
+joy,
+
+peace,
+
+and countless beautiful moments.
+
+<br><br>
+
+Never forget how special you are.
+
+❤️
+
+</p>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
