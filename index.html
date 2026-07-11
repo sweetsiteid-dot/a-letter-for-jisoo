@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,45 +8,53 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- PIN SCREEN -->
+<!-- MUSIC -->
+<audio id="music" loop>
+<source src="shape-of-my-heart.mp3" type="audio/mpeg">
+</audio>
 
+<!-- FLOATING HEARTS -->
+<div id="hearts"></div>
+
+<!-- PIN SCREEN -->
 <div id="pinScreen">
 
-<div class="pinContainer">
+<div class="pin-box">
 
 <h1>❤️</h1>
 
-<h2>Birthday Gift For Kim Ji-soo</h2>
+<h2>Private Birthday Gift</h2>
 
-<p>Enter PIN To Continue</p>
+<p>Enter PIN to continue</p>
 
-<div id="pinDisplay">
-○ ○ ○ ○
-</div>
+<input
+type="password"
+id="pinInput"
+readonly
+placeholder="••••">
 
 <div class="keypad">
 
-<button onclick="pressKey('1')">1</button>
-<button onclick="pressKey('2')">2</button>
-<button onclick="pressKey('3')">3</button>
+<button onclick="addPin('1')">1</button>
+<button onclick="addPin('2')">2</button>
+<button onclick="addPin('3')">3</button>
 
-<button onclick="pressKey('4')">4</button>
-<button onclick="pressKey('5')">5</button>
-<button onclick="pressKey('6')">6</button>
+<button onclick="addPin('4')">4</button>
+<button onclick="addPin('5')">5</button>
+<button onclick="addPin('6')">6</button>
 
-<button onclick="pressKey('7')">7</button>
-<button onclick="pressKey('8')">8</button>
-<button onclick="pressKey('9')">9</button>
+<button onclick="addPin('7')">7</button>
+<button onclick="addPin('8')">8</button>
+<button onclick="addPin('9')">9</button>
 
-<button onclick="deleteKey()">⌫</button>
-<button onclick="pressKey('0')">0</button>
-<button onclick="checkPin()">✓</button>
+<button onclick="clearPin()">⌫</button>
+<button onclick="addPin('0')">0</button>
+<button onclick="checkPin()">❤</button>
 
 </div>
 
@@ -57,16 +63,7 @@
 </div>
 
 <!-- MAIN WEBSITE -->
-
-<div id="mainContent">
-
-<audio id="music" loop>
-<source src="shape-of-my-heart.mp3" type="audio/mpeg">
-</audio>
-
-<div id="hearts"></div>
-
-<!-- HERO -->
+<div id="website" class="hidden">
 
 <section class="hero">
 
@@ -75,61 +72,27 @@
 <h2>Kim Ji-soo ❤️</h2>
 
 <p>
-
 Today is a celebration of your beautiful soul.
-
 This little website was made with love,
 just for you.
-
 </p>
 
-<button onclick="startJourney()">
+<button onclick="openHeart()">
 Open My Heart ❤️
 </button>
 
 </section>
 
-<!-- MEMORY WALL -->
+<!-- BOTTLE SECTION -->
+<section id="bottleSection" class="hidden">
 
-<section id="gallery" class="section">
+<h2>A Message In A Bottle 🍷</h2>
 
-<h2 class="title">
-Beautiful Memories 📸
-</h2>
-
-<div class="gallery">
-
-<img src="jisoo1.jpg">
-<img src="jisoo2.jpg">
-<img src="jisoo3.jpg">
-
-<img src="jisoo4.jpg">
-<img src="jisoo5.jpg">
-<img src="jisoo6.jpg">
-
-<img src="jisoo7.jpg">
-<img src="jisoo8.jpg">
-<img src="jisoo9.jpg">
-
-</div>
-
-</section>
-
-<!-- BOTTLE -->
-
-<section id="bottleSection" class="section">
-
-<h2 class="title">
-A Message In A Bottle 🍾
-</h2>
-
-<p class="subtitle">
-Tap the bottle to open my heart
-</p>
+<div id="bottleContainer">
 
 <div id="bottle" onclick="breakBottle()">
-
 🍾
+</div>
 
 </div>
 
@@ -137,59 +100,69 @@ Tap the bottle to open my heart
 
 <div id="letterContainer">
 
+<div class="letter-paper">
+
 <div id="letterText"></div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- SPECIAL PHOTO -->
+<!-- GALLERY -->
+<section class="gallery">
 
-<section id="specialSection" class="section hidden">
+<h2>Favorite Memories 📸</h2>
 
-<h2 class="title">
-One Last Surprise ❤️
-</h2>
+<div class="photo-frame">
 
-<img src="special.jpg" class="special-photo">
+<img
+id="slide"
+src="jisoo1.jpg">
 
-<p class="special-text">
+</div>
 
-Among all the beautiful memories,
-
-this one will always be my favorite.
-
-❤️
-
+<p id="caption">
+You make every moment beautiful.
 </p>
 
 </section>
 
-<!-- FINAL -->
+<!-- SPECIAL PUZZLE -->
+<section class="puzzle-section">
 
-<section class="ending">
-
-<h1>Happy Birthday ❤️</h1>
-
-<h2>Kim Ji-soo</h2>
+<h2>One Special Memory 🧩</h2>
 
 <p>
-
-May your life be filled with love,
-
-joy,
-
-peace,
-
-and countless beautiful moments.
-
-<br><br>
-
-Never forget how special you are.
-
-❤️
-
+Arrange the puzzle to reveal the surprise photo.
 </p>
+
+<div id="puzzle"></div>
+
+</section>
+
+<!-- FINAL -->
+<section class="final">
+
+<h2>
+Happy Birthday, Ji-soo ❤️
+</h2>
+
+<p>
+May every dream you hold in your heart
+find its way to reality.
+
+May happiness always find you,
+wherever life takes you.
+
+And thank you for existing,
+because this world is brighter with you in it.
+</p>
+
+<h3>
+Forever Admiring You ❤️
+</h3>
 
 </section>
 
@@ -198,5 +171,4 @@ Never forget how special you are.
 <script src="script.js"></script>
 
 </body>
-
 </html>
