@@ -1,126 +1,238 @@
-/* =========================
-   PIN SYSTEM
-========================= */
+// PIN SYSTEM
 
-let enteredPin = "";
+let pin = "";
 
-function pressKey(num){
-
-if(enteredPin.length < 4){
-
-enteredPin += num;
-
-updateDisplay();
-
+function addPin(num){
+pin += num;
+document.getElementById("pinInput").value =
+"*".repeat(pin.length);
 }
 
-}
+function clearPin(){
+pin = pin.slice(0,-1);
 
-function deleteKey(){
-
-enteredPin = enteredPin.slice(0,-1);
-
-updateDisplay();
-
-}
-
-function updateDisplay(){
-
-let dots = "";
-
-for(let i=0;i<enteredPin.length;i++){
-dots += "● ";
-}
-
-for(let i=enteredPin.length;i<4;i++){
-dots += "○ ";
-}
-
-document.getElementById("pinDisplay")
-.innerHTML = dots;
-
+document.getElementById("pinInput").value =
+"*".repeat(pin.length);
 }
 
 function checkPin(){
 
-if(enteredPin === "1111"){
+if(pin === "1111"){
 
 document.getElementById("pinScreen")
-.style.display = "none";
+.style.display="none";
 
-document.getElementById("mainContent")
-.style.display = "block";
-
-document.getElementById("music")
-.play();
+document.getElementById("website")
+.classList.remove("hidden");
 
 }else{
 
 alert("Wrong PIN ❤️");
 
-enteredPin = "";
+pin="";
 
-updateDisplay();
-
+document.getElementById("pinInput").value="";
 }
 
 }
 
-/* =========================
-   OPEN HEART BUTTON
-========================= */
+// OPEN HEART
 
-function startJourney(){
+function openHeart(){
 
-document.getElementById("gallery")
-.scrollIntoView({
+document.getElementById("bottleSection")
+.classList.remove("hidden");
+
+document.getElementById("music").play();
+
+window.scrollTo({
+top:window.innerHeight,
 behavior:"smooth"
 });
 
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+// BOTTLE BREAK
+
+function breakBottle(){
+
+const bottle =
+document.getElementById("bottle");
+
+bottle.innerHTML="💥";
+
+document.getElementById("flowers")
+.style.display="block";
+
+document.getElementById("flowers")
+.innerHTML=
+"🌹 🌹 🌹 🌹 🌹 🌹 🌹 🌹";
+
+document.getElementById("letterContainer")
+.style.display="block";
+
+typeLetter();
+
+}
+
+// LETTER TYPING
+
+const message = `
+
+My Dearest Kim Ji-soo,
+
+Happy Birthday. ❤️
+
+Today is a celebration of your life,
+your kindness,
+your beauty,
+and the happiness you bring to everyone around you.
+
+You have a way of making ordinary moments feel magical,
+and that is something truly rare.
+
+May this new year of your life bring you endless happiness,
+good health,
+beautiful memories,
+and dreams that come true one by one.
+
+I hope every smile you share returns to you a thousand times brighter.
+
+Thank you for being such a wonderful person.
+
+The world feels warmer because you are in it.
+
+No matter where life takes you,
+never forget how loved,
+special,
+and precious you are.
+
+Happy Birthday once again.
+
+May your heart always be full of love,
+your days full of laughter,
+and your future full of light.
+
+With admiration and affection,
+
+❤️
+`;
+
+function typeLetter(){
+
+let i = 0;
+
+const target =
+document.getElementById("letterText");
+
+target.innerHTML="";
+
+const typing = setInterval(()=>{
+
+target.innerHTML += message.charAt(i);
+
+i++;
+
+if(i >= message.length){
+
+clearInterval(typing);
+
+}
+
+},25);
+
+}
+
+// GALLERY
+
+const images = [
+
+"jisoo1.jpg",
+"jisoo2.jpg",
+"jisoo3.jpg",
+"jisoo4.jpg",
+"jisoo5.jpg",
+"jisoo6.jpg",
+"jisoo7.jpg",
+"jisoo8.jpg",
+"jisoo9.jpg"
+
+];
+
+const captions = [
+
+"You make every moment beautiful.",
+"Your smile brightens every room.",
+"A memory worth keeping forever.",
+"Happiness looks good on you.",
+"Beautiful inside and out.",
+"Some people are simply unforgettable.",
+"The world shines brighter with you.",
+"A little piece of perfection.",
+"My favorite photo of you."
+
+];
+
+let current = 0;
+
+setInterval(()=>{
+
+current++;
+
+if(current >= images.length){
+
+current = 0;
+
+}
+
+document.getElementById("slide").src =
+images[current];
+
+document.getElementById("caption").innerText =
+captions[current];
+
+},3000);
+
+// FLOATING HEARTS
 
 function createHeart(){
 
 const heart =
 document.createElement("div");
 
-heart.innerHTML = "❤️";
+heart.innerHTML="❤️";
 
-heart.style.position = "absolute";
+heart.style.position="fixed";
+heart.style.left=
+Math.random()*100+"vw";
 
-heart.style.left =
-Math.random()*100 + "vw";
+heart.style.top="-30px";
 
-heart.style.top = "-20px";
+heart.style.fontSize=
+(Math.random()*25+15)+"px";
 
-heart.style.fontSize =
-(Math.random()*20+15)+"px";
+heart.style.opacity=".8";
 
-heart.style.opacity =
-Math.random();
-
-heart.style.animation =
-`fall ${Math.random()*4+5}s linear`;
+heart.style.animation=
+"fall 8s linear";
 
 document.getElementById("hearts")
 .appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
-},9000);
+},8000);
 
 }
 
 setInterval(createHeart,500);
 
-const heartStyle =
+// HEART ANIMATION
+
+const style =
 document.createElement("style");
 
-heartStyle.innerHTML = `
+style.innerHTML=`
 
 @keyframes fall{
 
@@ -138,260 +250,46 @@ opacity:0;
 
 `;
 
-document.head.appendChild(heartStyle);
+document.head.appendChild(style);
 
-/* =========================
-   BOTTLE BREAK
-========================= */
+// PUZZLE
 
-let opened = false;
+const puzzle =
+document.getElementById("puzzle");
 
-function breakBottle(){
+const positions = [
 
-if(opened) return;
+[0,0],
+[1,0],
+[2,0],
 
-opened = true;
+[0,1],
+[1,1],
+[2,1],
 
-const bottle =
-document.getElementById("bottle");
-
-bottle.innerHTML = "💥";
-
-createFlowers();
-
-setTimeout(()=>{
-
-bottle.style.display = "none";
-
-showLetter();
-
-},1200);
-
-}
-
-/* =========================
-   ROSE FLOWERS EFFECT
-========================= */
-
-function createFlowers(){
-
-const flowers =
-document.getElementById("flowers");
-
-const emojis = [
-
-"🌹",
-"🌹",
-"🌹",
-"❤️",
-"❤️",
-"✨",
-"🌹",
-"🌹",
-"❤️",
-"✨"
+[0,2],
+[1,2],
+[2,2]
 
 ];
 
-for(let i=0;i<25;i++){
+positions
+.sort(()=>Math.random()-0.5)
+.forEach(pos=>{
 
-const flower =
+const piece =
 document.createElement("div");
 
-flower.classList.add("flower");
+piece.className="piece";
 
-flower.innerHTML =
-emojis[Math.floor(
-Math.random()*emojis.length
-)];
+piece.style.backgroundImage=
+"url('special.jpg')";
 
-flower.style.left =
-(Math.random()*100)+"%";
+piece.style.backgroundPosition=
+`${-pos[0]*106}px ${-pos[1]*106}px`;
 
-flower.style.setProperty(
-"--moveX",
-(Math.random()*200-100)+"px"
-);
+piece.draggable=true;
 
-flowers.appendChild(flower);
-
-setTimeout(()=>{
-flower.remove();
-},4000);
-
-}
-
-}
-
-/* =========================
-   LETTER STORY
-========================= */
-
-const paragraphs = [
-
-`My Dearest Kim Ji-soo, ❤️`,
-
-`Happy Birthday to one of the most beautiful souls in this world.`,
-
-`Today is all about celebrating you, your smile, your kindness, and the happiness you bring to everyone around you.`,
-
-`I hope this new chapter of your life is filled with endless joy, unforgettable memories, and dreams coming true.`,
-
-`May every morning greet you with peace, every afternoon bring you strength, and every night remind you how loved you are.`,
-
-`Thank you for existing and making this world a little brighter simply by being yourself.`,
-
-`Your smile has a way of turning ordinary moments into something magical.`,
-
-`I hope you continue to shine, grow, and become even more amazing with each passing year.`,
-
-`Never doubt how special you are.`,
-
-`There will always be people who appreciate your kindness, admire your strength, and care deeply about you.`,
-
-`May happiness find you wherever life takes you.`,
-
-`May love surround you every day.`,
-
-`And may your heart always remain as beautiful as it is today.`,
-
-`Happy Birthday once again, Kim Ji-soo. ❤️`,
-
-`You deserve every beautiful thing this life has to offer.`,
-
-`With all my love. ❤️`
-
-];
-
-function showLetter(){
-
-document.getElementById(
-"letterContainer"
-).style.display = "block";
-
-const letter =
-document.getElementById(
-"letterText"
-);
-
-let index = 0;
-
-function addParagraph(){
-
-if(index < paragraphs.length){
-
-const p =
-document.createElement("p");
-
-p.style.marginBottom = "25px";
-
-p.style.opacity = "0";
-
-p.innerHTML =
-paragraphs[index];
-
-letter.appendChild(p);
-
-setTimeout(()=>{
-
-p.style.transition =
-"1s";
-
-p.style.opacity = "1";
-
-},100);
-
-index++;
-
-setTimeout(
-addParagraph,
-2500
-);
-
-}else{
-
-setTimeout(()=>{
-
-document.getElementById(
-"specialSection"
-).classList.remove(
-"hidden"
-);
-
-document.getElementById(
-"specialSection"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-},3000);
-
-}
-
-}
-
-addParagraph();
-
-}
-
-/* =========================
-   SCROLL ANIMATION
-========================= */
-
-const observer =
-new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add(
-"show"
-);
-
-}
+puzzle.appendChild(piece);
 
 });
-
-},{
-threshold:0.15
-});
-
-document.querySelectorAll(
-".section,.ending"
-).forEach(el=>{
-
-el.classList.add(
-"fade-in"
-);
-
-observer.observe(el);
-
-});
-
-/* =========================
-   SPECIAL PHOTO GLOW
-========================= */
-
-setInterval(()=>{
-
-const photo =
-document.querySelector(
-".special-photo"
-);
-
-if(photo){
-
-photo.style.boxShadow =
-"0 0 30px rgba(255,0,0,.4)";
-
-setTimeout(()=>{
-
-photo.style.boxShadow =
-"0 0 10px rgba(255,255,255,.2)";
-
-},1000);
-
-}
-
-},2500);
