@@ -146,27 +146,58 @@ Tap the bottle
 
 </section>
 
-<!-- PUZZLE -->
+<!-- LOVE QUIZ -->
 
-<section class="puzzle-section">
+<section class="quiz-section">
 
-<h2>One Last Surprise 🧩</h2>
+<h2>❤️ Love Quiz ❤️</h2>
 
 <p>
-Arrange the puzzle to reveal
-the special memory.
+Answer all questions correctly to unlock the final surprise.
 </p>
 
-<div id="puzzle-board"></div>
+<div id="quizBox">
 
-<div id="winMessage">
+<div class="question active">
 
-<h3>
-You Found The Final Memory ❤️
-</h3>
+<h3>What color represents love?</h3>
+
+<button onclick="checkAnswer(this,true)">Red ❤️</button>
+<button onclick="checkAnswer(this,false)">Blue</button>
+<button onclick="checkAnswer(this,false)">Green</button>
+
+</div>
+
+<div class="question">
+
+<h3>How many hearts are needed to love someone?</h3>
+
+<button onclick="checkAnswer(this,false)">2</button>
+<button onclick="checkAnswer(this,true)">1 ❤️</button>
+<button onclick="checkAnswer(this,false)">10</button>
+
+</div>
+
+<div class="question">
+
+<h3>Who is today's special person?</h3>
+
+<button onclick="checkAnswer(this,false)">Jennie</button>
+<button onclick="checkAnswer(this,true)">Kim Ji-soo ❤️</button>
+<button onclick="checkAnswer(this,false)">Rosé</button>
+
+</div>
+
+</div>
+
+<div id="quizSuccess" class="hidden">
+
+<h2>🎉 You Did It! 🎉</h2>
+
+<img src="special.jpg" class="special-photo">
 
 <p>
-Some memories stay in our hearts forever.
+You unlocked the final memory ❤️
 </p>
 
 </div>
