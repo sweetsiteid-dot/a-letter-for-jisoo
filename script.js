@@ -324,164 +324,42 @@ clearInterval(typing);
 }
 
 /* =========================
-   PUZZLE
+   LOVE QUIZ
 ========================= */
 
-const board =
-document.getElementById(
-"puzzle-board"
-);
+let currentQuestion = 0;
 
-let draggedPiece = null;
+const questions =
+document.querySelectorAll(".question");
 
-const correctOrder = [];
-const currentOrder = [];
+function checkAnswer(button,correct){
 
-for(let y=0;y<3;y++){
-
-for(let x=0;x<3;x++){
-
-correctOrder.push(
-`${x}-${y}`
-);
-
+if(!correct){
+alert("Oops! Try again ❤️");
+return;
 }
 
-}
+questions[currentQuestion]
+.classList.remove("active");
 
-const pieces = [];
+currentQuestion++;
 
-for(let y=0;y<3;y++){
+if(currentQuestion < questions.length){
 
-for(let x=0;x<3;x++){
+questions[currentQuestion]
+.classList.add("active");
 
-const piece =
-document.createElement("div");
+}else{
 
-piece.className="piece";
-
-piece.draggable=true;
-
-piece.dataset.correct=
-`${x}-${y}`;
-
-piece.style.backgroundImage=
-"url('special.jpg')";
-
-piece.style.backgroundSize =
-"368px 490.5px";
-
-piece.style.backgroundPosition =
-`${-x*122.67}px ${-y*163.5}px`;
-
-pieces.push(piece);
-
-}
-
-}
-
-pieces.sort(()=>
-Math.random()-0.5
-);
-
-pieces.forEach(piece=>{
-
-board.appendChild(piece);
-
-currentOrder.push(
-piece.dataset.correct
-);
-
-piece.addEventListener(
-"dragstart",
-()=>{
-
-draggedPiece = piece;
-
-}
-);
-
-piece.addEventListener(
-"dragover",
-(e)=>{
-
-e.preventDefault();
-
-}
-);
-
-piece.addEventListener(
-"drop",
-()=>{
-
-if(
-!draggedPiece ||
-draggedPiece === piece
-) return;
-
-const draggedHTML =
-draggedPiece.style.backgroundPosition;
-
-const targetHTML =
-piece.style.backgroundPosition;
-
-const draggedData =
-draggedPiece.dataset.correct;
-
-const targetData =
-piece.dataset.correct;
-
-draggedPiece.style.backgroundPosition =
-targetHTML;
-
-piece.style.backgroundPosition =
-draggedHTML;
-
-draggedPiece.dataset.correct =
-targetData;
-
-piece.dataset.correct =
-draggedData;
-
-checkPuzzle();
-
-}
-);
-
-});
-
-function checkPuzzle(){
-
-const allPieces =
-document.querySelectorAll(".piece");
-
-let solved = true;
-
-allPieces.forEach((piece,index)=>{
-
-if(
-piece.dataset.correct !==
-correctOrder[index]
-){
-
-solved = false;
-
-}
-
-});
-
-if(solved){
-
-document.getElementById(
-"winMessage"
-).style.display="block";
-
-document.getElementById(
-"winMessage"
-).style.animation =
-"popIn .5s ease";
+document.getElementById("quizSuccess")
+.classList.remove("hidden");
 
 createConfetti();
+
+document.getElementById("quizSuccess")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
