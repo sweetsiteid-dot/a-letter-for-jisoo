@@ -256,46 +256,55 @@ box-shadow:0 0 20px rgba(255,255,255,.08);
 transform:scale(1.05);
 }
 
-/* PUZZLE */
+/* LOVE QUIZ */
 
-.puzzle-section{
+.quiz-section{
 padding:120px 20px;
 text-align:center;
 }
 
-.puzzle-section h2{
+.quiz-section h2{
 font-size:42px;
 margin-bottom:15px;
 }
 
-.puzzle-section p{
-opacity:.85;
-margin-bottom:25px;
-}
-
-#puzzle-board{
-width:368px;
-height:490.5px;
-}
-
-.piece{
-width:122.67px;
-height:163.5px;
-}
-
-#winMessage{
+.question{
 display:none;
+max-width:500px;
+margin:auto;
+}
+
+.question.active{
+display:block;
+}
+
+.question h3{
+margin-bottom:20px;
+}
+
+.question button{
+display:block;
+width:100%;
+margin:10px 0;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#a10000;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.special-photo{
+width:300px;
+max-width:90%;
+border-radius:20px;
+margin:25px 0;
+box-shadow:0 0 25px rgba(255,255,255,.15);
+}
+
+#quizSuccess{
 margin-top:40px;
-}
-
-#winMessage h3{
-font-size:32px;
-color:#ffb3b3;
-margin-bottom:10px;
-}
-
-#winMessage p{
-font-size:18px;
 }
 
 /* FINAL */
